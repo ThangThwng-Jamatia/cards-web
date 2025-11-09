@@ -39,7 +39,7 @@ export default function About() {
             className="space-y-6 text-lg md:text-xl text-neutral-300 font-light leading-relaxed"
           >
             <p>
-              Minor Devs Studios is a one-person developer studio created by a solopreneur who believes in turning ideas into real, useful apps.
+              Minor Devs Studios is a one-person developer studio created by a young solopreneur who believes in turning ideas into real, useful apps.
             </p>
 
             <p>
@@ -47,7 +47,7 @@ export default function About() {
             </p>
 
             <p>
-              Every app I create is designed to be clean, minimal, and meaningful. My goal is to prove that even one person, with discipline, vision and ambition, can build something that make a difference.
+              Every app I create is designed to be clean, minimal, and meaningful. My goal is to prove that even a young teenager, with discipline, vision and ambition, can build something that make a difference.
             </p>
           </motion.div>
 
