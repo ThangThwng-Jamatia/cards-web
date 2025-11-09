@@ -71,12 +71,12 @@ export default function Legal() {
                   - Comply with law and store required records
                   <p></p>
                 </p>
-                <p> What We Don't Do:-
+                <p> What We Don&apos;t Do:-
                 <p></p>
                   <ul>
-                    <li> - We don't Sell your personal data to third parties</li>
-                    <li> - We don't collect more than needed for the feature to work.</li>
-                    <li> - We don't track you across unrelated apps or websites.</li>
+                    <li> - We don&apos;t Sell your personal data to third parties</li>
+                    <li> - We don&apos;t collect more than needed for the feature to work.</li>
+                    <li> - We don&apos;t track you across unrelated apps or websites.</li>
                   </ul>
                 </p>
 
