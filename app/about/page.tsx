@@ -3,14 +3,10 @@
 import { motion } from 'framer-motion';
 import { Youtube, Instagram, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import GradientBackground from '@/components/GradientBackground';
 import LiquidLightBackground from '@/components/LiquidLightBackground';
 
 export default function About() {
   const socialLinks = [
-    { name: 'YouTube', icon: Youtube, href: 'https://youtube.com', color: 'hover:text-red-400' },
-    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com', color: 'hover:text-pink-400' },
-    { name: 'Email', icon: Mail, href: 'mailto:support@minordevs.studio', color: 'hover:text-blue-400' },
     //{ name: 'YouTube', icon: Youtube, href: 'https://youtube.com', color: 'hover:text-red-400' },
     //{ name: 'Instagram', icon: Instagram, href: 'https://instagram.com', color: 'hover:text-pink-400' },
     { name: 'Email', icon: Mail, href: 'mailto:minordevsbusiness@gmail.com', color: 'hover:text-blue-400' },
@@ -18,7 +14,6 @@ export default function About() {
 
   return (
     <div className="min-h-screen relative">
-      <GradientBackground />
       <LiquidLightBackground />
 
       <section className="min-h-screen flex items-center justify-center px-6 py-24">
@@ -34,7 +29,6 @@ export default function About() {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-5xl md:text-7xl font-light tracking-tight text-white"
           >
-            About the Studio
             About the Studio and Founder
           </motion.h1>
 
@@ -45,17 +39,14 @@ export default function About() {
             className="space-y-6 text-lg md:text-xl text-neutral-300 font-light leading-relaxed"
           >
             <p>
-              Minor Devs Studios is an independent developer initiative founded by one solo creator — a disciplined young developer and creator passionate about crafting clean, human-centered apps that combine utility and beauty.
               Minor Devs Studios is a one-person developer studio created by a solopreneur who believes in turning ideas into real, useful apps.
             </p>
 
             <p>
-              Every app is designed with intention, built with care, and refined to feel effortless. The mission is simple: create tools that enhance daily life without overwhelming it.
               I’m a solo developer and creator also a calisthenics athlete who loves building things that help people grow and improve their lives.
             </p>
 
             <p>
-              From AI-powered health companions to elegant expense trackers, each project reflects a commitment to minimalism, functionality, and timeless design.
               Every app I create is designed to be clean, minimal, and meaningful. My goal is to prove that even one person, with discipline, vision and ambition, can build something that make a difference.
             </p>
           </motion.div>
@@ -66,7 +57,6 @@ export default function About() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="pt-8"
           >
-            <h2 className="text-2xl font-light text-white mb-6">Connect</h2>
             <h2 className="text-2xl font-light text-white mb-6">Connect With Me</h2>
             <div className="flex flex-wrap gap-4">
               {socialLinks.map((social, index) => (

@@ -11,7 +11,6 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-white font-light text-lg">Minor Devs Studios</h3>
             <p className="text-neutral-400 text-sm font-light leading-relaxed">
-              Building meaningful and minimal apps for the next generation.
               Made To Inspire. Helping young stars grow stronger, smarter, and more disciplined.
             </p>
           </div>
@@ -57,11 +56,9 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-white font-light text-lg">Contact</h3>
             <a
-              href="mailto:support@minordevs.studio"
               href="mailto:minordevsbusiness@gmail.com"
               className="text-neutral-400 text-sm font-light hover:text-white transition-colors block"
             >
-              support@minordevs.studio
               minordevsbusiness@gmail.com
             </a>
           </div>

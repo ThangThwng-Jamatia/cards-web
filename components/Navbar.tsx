@@ -31,7 +31,6 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'bg-black/80 backdrop-blur-lg border-b border-white/10' : 'bg-transparent'
         isScrolled ? 'bg-black/20 backdrop-blur-lg border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]' : 'bg-transparent'
       }`}
     >
@@ -40,7 +39,6 @@ export default function Navbar() {
           <Link href="/">
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="text-xl font-light text-white tracking-tight"
               className="text-xl font-light text-white tracking-tight uppercase"
             >
               Minor Devs Studios
@@ -51,8 +49,6 @@ export default function Navbar() {
             {navItems.map((item) => (
               <Link key={item.name} href={item.href}>
                 <motion.span
-                  whileHover={{ color: '#fff' }}
-                  className="text-neutral-400 hover:text-white transition-colors font-light cursor-pointer"
                   whileHover={{ y: -2 }}
                   className="text-neutral-400 hover:text-white transition-all duration-300 font-light cursor-pointer relative inline-block group"
                 >

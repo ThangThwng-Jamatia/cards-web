@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
@@ -54,7 +53,6 @@ export default function GradientBackground() {
     window.addEventListener('mousemove', handleMouseMove);
 
     const animate = () => {
-      time += 0.002;
       time += 0.001; // Slower, more cinematic
 
       // Diagonal gradient that flows
@@ -63,28 +61,18 @@ export default function GradientBackground() {
       const gradientY = Math.sin(angle) * canvas.height;
 
       const gradient = ctx.createLinearGradient(
-        0,
-        0,
-        canvas.width,
-        canvas.height
         canvas.width / 2 - gradientX,
         canvas.height / 2 - gradientY,
         canvas.width / 2 + gradientX,
         canvas.height / 2 + gradientY
       );
 
-      const offset1 = Math.sin(time) * 0.5 + 0.5;
-      const offset2 = Math.cos(time * 0.7) * 0.5 + 0.5;
-      const offset3 = Math.sin(time * 1.3) * 0.5 + 0.5;
       // Deep black to gray gradient (luxury feel)
       const offset1 = Math.sin(time * 0.8) * 0.5 + 0.5;
       const offset2 = Math.cos(time * 0.5) * 0.5 + 0.5;
       const offset3 = Math.sin(time * 1.2) * 0.5 + 0.5;
 
       gradient.addColorStop(0, `rgba(0, 0, 0, 1)`);
-      gradient.addColorStop(offset1 * 0.3, `rgba(20, 20, 20, 1)`);
-      gradient.addColorStop(offset2 * 0.6, `rgba(40, 40, 40, 1)`);
-      gradient.addColorStop(offset3 * 0.8, `rgba(25, 25, 25, 1)`);
       gradient.addColorStop(offset1 * 0.25, `rgba(26, 26, 26, 1)`);
       gradient.addColorStop(offset2 * 0.5, `rgba(42, 42, 42, 1)`);
       gradient.addColorStop(offset3 * 0.75, `rgba(30, 30, 30, 1)`);
@@ -143,15 +131,9 @@ export default function GradientBackground() {
       window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
   }, [mouseX, mouseY, isMobile]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 w-full h-full -z-10"
-      style={{ willChange: 'transform' }}
-    />
     <>
       {/* Main canvas with parallax */}
       <motion.canvas
