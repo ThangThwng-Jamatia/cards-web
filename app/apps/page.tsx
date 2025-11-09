@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import AppCard from '@/components/AppCard';
-import GradientBackground from '@/components/GradientBackground';
+import LiquidLightBackground from '@/components/LiquidLightBackground';
 
 export default function Apps() {
   const apps = [
