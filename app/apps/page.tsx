@@ -4,8 +4,15 @@ import { motion } from 'framer-motion';
 import AppCard from '@/components/AppCard';
 import LiquidLightBackground from '@/components/LiquidLightBackground';
 
+interface App {
+  name: string;
+  description: string;
+  category: string;
+  playStoreUrl: string;
+}
+
 export default function Apps() {
-  const apps = [
+  const apps: App[] = [
     // {
     //  name: 'Challenge Cards',
     //  description: 'Break the Unconcious Loop of Bad Habits with AI-Powered Challenge Cards. Transform your life with one challenge at a time.',
