@@ -29,6 +29,8 @@ declare module 'lucide-react' {
   export const Dot: Icon;
   export const Circle: Icon;
   export const GripVertical: Icon;
+  export const Heart: Icon;
+  export const Loader2: Icon;
 
   // Add any other icons you're using
   const lucideReact: {

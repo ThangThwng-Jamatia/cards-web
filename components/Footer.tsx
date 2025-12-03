@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import DonateModal from './DonateModal';
 
 export default function Footer() {
   return (
@@ -50,6 +51,7 @@ export default function Footer() {
                   Legal
                 </motion.div>
               </Link>
+              <DonateModal />
             </div>
           </div>
 
