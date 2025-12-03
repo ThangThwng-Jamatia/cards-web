@@ -10,12 +10,12 @@ const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600'] }
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://minordevsstudios.vercel.app';
 
 export const metadata: Metadata = {
-  title: 'Minor Devs Studios — Premium App Development',
+  title: 'Minor Dev Studios - Solo Development Workspace',
   description: 'Building meaningful and minimal apps for the next generation.',
-  keywords: ['app development', 'mobile apps', 'minimal design', 'productivity apps', 'Minor Devs Studios'],
-  authors: [{ name: 'Minor Devs Studios' }],
-  creator: 'Minor Devs Studios',
-  publisher: 'Minor Devs Studios',
+  keywords: ['app development', 'mobile apps', 'minimal design', 'productivity apps', 'Minor Dev Studios'],
+  authors: [{ name: 'Minor Dev Studios' }],
+  creator: 'Minor Dev Studios',
+  publisher: 'Minor Dev Studios',
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: '/',
@@ -24,21 +24,21 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    title: 'Minor Devs Studios — Premium App Development',
+    title: 'Minor Dev Studios - Solo Development Workspace',
     description: 'Building meaningful and minimal apps for the next generation.',
-    siteName: 'Minor Devs Studios',
+    siteName: 'Minor Dev Studios',
     images: [
       {
         url: '/icon.png',
         width: 32,
         height: 32,
-        alt: 'Minor Devs Studios',
+        alt: 'Minor Dev Studios',
       },
     ],
   },
   twitter: {
     card: 'summary',
-    title: 'Minor Devs Studios — Premium App Development',
+    title: 'Minor Dev Studios - Solo Development Workspace',
     description: 'Building meaningful and minimal apps for the next generation.',
     images: ['/icon.png'],
   },
