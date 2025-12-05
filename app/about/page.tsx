@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LiquidLightBackground from '@/components/LiquidLightBackground';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function About() {
   const socialLinks = [
