@@ -74,7 +74,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
+      <body className={`${inter.className} bg-black text-white antialiased`}>
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
@@ -98,13 +98,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             `,
           }}
         />
-        <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon.ico" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-      </head>
-      <body className={`${inter.className} bg-black text-white antialiased`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
