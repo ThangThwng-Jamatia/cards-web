@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Toaster } from '@/components/ui/sonner';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600'] });
 
@@ -118,6 +119,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <main className="min-h-screen">{children}</main>
         <Footer />
         <Toaster />
+        <SpeedInsights />
       </body>
     </html>
   );
