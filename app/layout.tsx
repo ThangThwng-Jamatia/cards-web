@@ -24,24 +24,30 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: '/',
+    url: siteUrl,
     title: 'Minor Dev Studios - Solo Development Workspace',
     description: 'Building meaningful and minimal apps for the next generation.',
     siteName: 'Minor Dev Studios',
     images: [
       {
-        url: '/web-app-manifest-512x512.png',
+        url: `${siteUrl}/web-app-manifest-512x512.png`,
         width: 512,
         height: 512,
-        alt: 'Minor Dev Studios',
+        alt: 'Minor Dev Studios Logo',
+      },
+      {
+        url: `${siteUrl}/web-app-manifest-192x192.png`,
+        width: 192,
+        height: 192,
+        alt: 'Minor Dev Studios Logo',
       },
     ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Minor Dev Studios - Solo Development Workspace',
     description: 'Building meaningful and minimal apps for the next generation.',
-    images: ['/web-app-manifest-512x512.png'],
+    images: [`${siteUrl}/web-app-manifest-512x512.png`],
   },
   robots: {
     index: true,
@@ -56,12 +62,19 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
     ],
+    shortcut: [{ url: '/favicon.ico' }],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/favicon.svg',
+      },
     ],
   },
   manifest: '/site.webmanifest',
