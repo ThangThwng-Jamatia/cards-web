@@ -8,7 +8,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600'] });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://minordevsstudios.vercel.app';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://minordevstudios.com';
 
 export const metadata: Metadata = {
   title: {

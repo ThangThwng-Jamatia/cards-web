@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for https://minordevstudios.com/</title>
+  <link>https://minordevstudios.com/</link>
+
+<item>
+     <link>https://minordevstudios.com/</link>
+     <title>Minor Dev Studios - Solo Development Workspace</title>
+     <description>Building meaningful and minimal apps for the next generation.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://minordevstudios.com/about</link>
+     <title>Minor Dev Studios - Solo Development Workspace</title>
+     <description>Building meaningful and minimal apps for the next generation.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://minordevstudios.com/apps</link>
+     <title>Minor Dev Studios - Solo Development Workspace</title>
+     <description>Building meaningful and minimal apps for the next generation.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://minordevstudios.com/legal</link>
+     <title>Minor Dev Studios - Solo Development Workspace</title>
+     <description>Building meaningful and minimal apps for the next generation.</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  

@@ -3,4 +3,5 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://minordevsstudios.vercel.app/sitemap.xml
+Sitemap: https://minordevstudios.com/sitemap.xml
+Sitemap: https://minordevstudios.com/sitemap.xml.gz
