@@ -11,7 +11,10 @@ const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600'] }
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://minordevsstudios.vercel.app';
 
 export const metadata: Metadata = {
-  title: 'Minor Dev Studios - Solo Development Workspace',
+  title: {
+    default: 'Minor Dev Studios - Solo Development Workspace',
+    template: '%s | Minor Dev Studios',
+  },
   description: 'Building meaningful and minimal apps for the next generation.',
   keywords: ['app development', 'mobile apps', 'minimal design', 'productivity apps', 'Minor Dev Studios'],
   authors: [{ name: 'Minor Dev Studios' }],
@@ -30,15 +33,15 @@ export const metadata: Metadata = {
     siteName: 'Minor Dev Studios',
     images: [
       {
-        url: `${siteUrl}/web-app-manifest-512x512.png`,
-        width: 512,
-        height: 512,
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
         alt: 'Minor Dev Studios Logo',
       },
       {
-        url: `${siteUrl}/web-app-manifest-192x192.png`,
-        width: 192,
-        height: 192,
+        url: '/web-app-manifest-512x512.png',
+        width: 512,
+        height: 512,
         alt: 'Minor Dev Studios Logo',
       },
     ],
@@ -47,7 +50,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Minor Dev Studios - Solo Development Workspace',
     description: 'Building meaningful and minimal apps for the next generation.',
-    images: [`${siteUrl}/web-app-manifest-512x512.png`],
+    creator: '@minordevstudios',
+    images: ['/twitter-image.png'],
   },
   robots: {
     index: true,
@@ -60,24 +64,10 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
-    ],
-    shortcut: [{ url: '/favicon.ico' }],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-    other: [
-      {
-        rel: 'mask-icon',
-        url: '/favicon.svg',
-      },
-    ],
-  },
   manifest: '/site.webmanifest',
+  verification: {
+    google: 'your-google-verification-code',
+  },
 };
 
 export default function RootLayout({
@@ -85,8 +75,31 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Minor Dev Studios',
+    url: siteUrl,
+    logo: `${siteUrl}/web-app-manifest-512x512.png`,
+    description: 'Building meaningful and minimal apps for the next generation.',
+    sameAs: [
+      // Add your social media URLs here
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Customer Service',
+      availableLanguage: ['English'],
+    },
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.className} bg-black text-white antialiased`}>
         {/* Google Tag Manager */}
         <script
