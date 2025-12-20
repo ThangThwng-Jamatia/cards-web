@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  applicationName: 'Minor Dev Studios',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -34,13 +35,13 @@ export const metadata: Metadata = {
     siteName: 'Minor Dev Studios',
     images: [
       {
-        url: '/opengraph-image.png',
+        url: `${siteUrl}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: 'Minor Dev Studios Logo',
       },
       {
-        url: '/web-app-manifest-512x512.png',
+        url: `${siteUrl}/web-app-manifest-512x512.png`,
         width: 512,
         height: 512,
         alt: 'Minor Dev Studios Logo',
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     title: 'Minor Dev Studios - Solo Development Workspace',
     description: 'Building meaningful and minimal apps for the next generation.',
     creator: '@minordevstudios',
-    images: ['/twitter-image.png'],
+    images: [`${siteUrl}/twitter-image.png`],
   },
   robots: {
     index: true,
@@ -71,10 +72,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32 48x48', type: 'image/x-icon' },
+      { url: '/favicon.ico', sizes: 'any', type: 'image/x-icon' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
       { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
     ],
+    shortcut: [{ url: '/favicon.ico', type: 'image/x-icon' }],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
@@ -91,6 +94,10 @@ export const metadata: Metadata = {
         sizes: '512x512',
         type: 'image/png',
       },
+      {
+        rel: 'mask-icon',
+        url: '/icon.svg',
+      },
     ],
   },
 };
@@ -104,16 +111,46 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Minor Dev Studios',
+    alternateName: 'Minor Dev',
     url: siteUrl,
-    logo: `${siteUrl}/web-app-manifest-512x512.png`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/web-app-manifest-512x512.png`,
+      width: 512,
+      height: 512,
+    },
+    image: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/opengraph-image.png`,
+      width: 1200,
+      height: 630,
+    },
     description: 'Building meaningful and minimal apps for the next generation.',
+    foundingDate: '2024',
     sameAs: [
-      // Add your social media URLs here
+      'https://twitter.com/minordevstudios',
+      // Add more social media URLs here
     ],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Service',
       availableLanguage: ['English'],
+    },
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Minor Dev Studios',
+    url: siteUrl,
+    description: 'Building meaningful and minimal apps for the next generation.',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Minor Dev Studios',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/web-app-manifest-512x512.png`,
+      },
     },
   };
 
@@ -124,6 +161,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <link rel="canonical" href={siteUrl} />
       </head>
       <body className={`${inter.className} bg-black text-white antialiased`}>
         {/* Google Tag Manager */}

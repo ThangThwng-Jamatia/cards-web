@@ -1,7 +1,16 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+Allow: /favicon.ico
+Allow: /favicon.svg
+Allow: /favicon-96x96.png
+Allow: /apple-touch-icon.png
+Allow: /web-app-manifest-192x192.png
+Allow: /web-app-manifest-512x512.png
+Allow: /icon.ico
+Allow: /icon.svg
+Allow: /opengraph-image.png
+Allow: /twitter-image.png
 
 # Sitemaps
 Sitemap: https://minordevstudios.com/sitemap.xml
-Sitemap: https://minordevstudios.com/sitemap.xml.gz
