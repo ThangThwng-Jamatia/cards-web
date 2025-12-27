@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail } from 'lucide-react';
+import { Mail, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LiquidLightBackground from '@/components/LiquidLightBackground';
 
@@ -10,6 +10,7 @@ export default function About() {
     //{ name: 'YouTube', icon: Youtube, href: 'https://youtube.com', color: 'hover:text-red-400' },
     //{ name: 'Instagram', icon: Instagram, href: 'https://instagram.com', color: 'hover:text-pink-400' },
     { name: 'Email', icon: Mail, href: 'mailto:minordevsbusiness@gmail.com', color: 'hover:text-blue-400' },
+    { name: 'My GitHub', icon: Github, href: 'https://github.com/ThangThwng-Jamatia', color: 'hover:text-purple-400' },
   ];
 
   return (
