@@ -82,7 +82,7 @@ export default function Apps() {
             className="text-center"
           >
             <p className="text-sm text-white/50 font-light">
-              Apps Launching Soon...
+              More Apps Launching Soon...
             </p>
           </motion.div>
         </div>
