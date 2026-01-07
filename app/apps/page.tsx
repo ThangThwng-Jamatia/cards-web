@@ -13,12 +13,12 @@ interface App {
 
 export default function Apps() {
   const apps: App[] = [
-    // {
-    //  name: 'Challenge Cards',
-    //  description: 'Break the Unconcious Loop of Bad Habits with AI-Powered Challenge Cards. Transform your life with one challenge at a time.',
-    //  category: 'Focus & Productivity',
-    //  playStoreUrl: '#',
-    // },
+     {
+      name: 'Minor Challenges',
+      description: 'Transform Your Life With Small Micro Daily Challenges. Boost Productivity, Build Habits, and Enhance Well-being One Step at a Time.',
+      category: 'Focus & Productivity',
+      playStoreUrl: 'https://play.google.com/store/apps/details?id=com.minor.challenges&pcampaignid=web_share',
+     },
     // {
     //   name: 'Healthier',
     //   description: 'Smarter food decisions, powered by AI. Your intelligent companion for nutrition tracking and wellness insights.',
