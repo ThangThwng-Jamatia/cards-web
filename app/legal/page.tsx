@@ -125,7 +125,7 @@ export default function Legal() {
                 <p>
                   Minor Devs Studios may offer in-app purchases and subscriptions. Purchases are handled by the app store.
                 </p>
-                <p>
+                <p className="text-red-500">
                   Please Note: All the In-App Purchases are final, and no refunds will be issued after the purchase.
                 </p>
 
