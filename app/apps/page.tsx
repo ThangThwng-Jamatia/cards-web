@@ -19,12 +19,14 @@ export default function Apps() {
       category: 'Focus & Productivity',
       playStoreUrl: 'https://play.google.com/store/apps/details?id=com.minor.challenges&pcampaignid=web_share',
      },
-    // {
-    //   name: 'Healthier',
-    //   description: 'Smarter food decisions, powered by AI. Your intelligent companion for nutrition tracking and wellness insights.',
-    //   category: 'Health & Fitness',
-    //   playStoreUrl: '#',
-    // },
+
+     {
+    name: 'Minor Builds : Habit Tracker',
+    description: 'Build and Track Custom Habits Seamlessly. A Minimalistic Habit Tracker for Effortless Habit Building and Tracking.',
+    category: 'Habits & Productivity',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.minorbuilds.app&pcampaignid=web_share',
+     },
+
     // {
     //   name: 'Expense AI',
     //   description: 'Track spending through intelligence. Revolutionary expense management using AI-powered receipt scanning.',
