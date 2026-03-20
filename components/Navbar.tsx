@@ -1,19 +1,26 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import gsap from 'gsap';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    gsap.fromTo(
+      navRef.current,
+      { y: -80, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 2.5 }
+    );
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 30);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -26,49 +33,66 @@ export default function Navbar() {
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'bg-black/20 backdrop-blur-lg border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]' : 'bg-transparent'
-      }`}
+    <nav
+      ref={navRef}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      style={{
+        opacity: 0,
+        backgroundColor: isScrolled ? 'rgba(11, 8, 12, 0.85)' : 'transparent',
+        backdropFilter: isScrolled ? 'blur(20px)' : 'none',
+        borderBottom: isScrolled ? '1px solid var(--borderColor)' : '1px solid transparent',
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
           <Link href="/">
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="text-xl font-light text-white tracking-tight uppercase"
+              whileHover={{ opacity: 0.7 }}
+              transition={{ duration: 0.2 }}
+              style={{
+                fontFamily: 'Geist, sans-serif',
+                fontWeight: 600,
+                fontSize: '1rem',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'var(--textColor)',
+              }}
             >
-              Minor Devs Studios
+              Minor Devs
             </motion.div>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
               <Link key={item.name} href={item.href}>
                 <motion.span
-                  whileHover={{ y: -2 }}
-                  className="text-neutral-400 hover:text-white transition-all duration-300 font-light cursor-pointer relative inline-block group"
+                  whileHover={{ y: -1 }}
+                  className="relative inline-block group"
+                  style={{
+                    fontSize: '0.875rem',
+                    fontWeight: 300,
+                    letterSpacing: '0.05em',
+                    color: 'rgba(234, 229, 236, 0.5)',
+                    display: 'block',
+                  }}
                 >
                   {item.name}
-                  <motion.span
-                    className="absolute -bottom-1 left-0 h-[1px] bg-white/50 w-0 group-hover:w-full transition-all duration-300"
+                  <span
+                    className="absolute -bottom-0.5 left-0 w-0 group-hover:w-full transition-all duration-300"
+                    style={{ height: '1px', background: 'var(--accentColor)' }}
                   />
                 </motion.span>
               </Link>
             ))}
           </div>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden text-white"
+          <button
+            className="md:hidden p-2"
+            style={{ color: 'var(--textColor)' }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </Button>
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
       </div>
 
@@ -78,21 +102,32 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-black/95 backdrop-blur-lg border-b border-white/10"
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              background: 'rgba(11, 8, 12, 0.98)',
+              backdropFilter: 'blur(20px)',
+              borderBottom: '1px solid var(--borderColor)',
+            }}
           >
-            <div className="px-6 py-6 space-y-4">
+            <div className="px-6 py-8 space-y-6">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.08, duration: 0.4 }}
                 >
-                  <Link href={item.href} onClick={() => setIsMobileMenuOpen(false)}>
-                    <div className="text-white text-lg font-light hover:text-neutral-300 transition-colors">
-                      {item.name}
-                    </div>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    style={{
+                      fontSize: '1.25rem',
+                      fontWeight: 300,
+                      color: 'var(--textColor)',
+                      display: 'block',
+                    }}
+                  >
+                    {item.name}
                   </Link>
                 </motion.div>
               ))}
@@ -100,6 +135,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 }

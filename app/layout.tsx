@@ -1,13 +1,11 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Toaster } from '@/components/ui/sonner';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-
-const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600'] });
+import ClientComponents from '@/components/ClientComponents';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://minordevstudios.com';
 
@@ -38,12 +36,6 @@ export const metadata: Metadata = {
         url: `${siteUrl}/opengraph-image.png`,
         width: 1200,
         height: 630,
-        alt: 'Minor Dev Studios Logo',
-      },
-      {
-        url: `${siteUrl}/web-app-manifest-512x512.png`,
-        width: 512,
-        height: 512,
         alt: 'Minor Dev Studios Logo',
       },
     ],
@@ -94,19 +86,11 @@ export const metadata: Metadata = {
         sizes: '512x512',
         type: 'image/png',
       },
-      {
-        rel: 'mask-icon',
-        url: '/icon.svg',
-      },
     ],
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -119,18 +103,9 @@ export default function RootLayout({
       width: 512,
       height: 512,
     },
-    image: {
-      '@type': 'ImageObject',
-      url: `${siteUrl}/opengraph-image.png`,
-      width: 1200,
-      height: 630,
-    },
     description: 'Building meaningful and minimal apps for the next generation.',
     foundingDate: '2024',
-    sameAs: [
-      'https://twitter.com/minordevstudios',
-      // Add more social media URLs here
-    ],
+    sameAs: ['https://twitter.com/minordevstudios'],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Service',
@@ -167,7 +142,7 @@ export default function RootLayout({
         />
         <link rel="canonical" href={siteUrl} />
       </head>
-      <body className={`${inter.className} bg-black text-white antialiased`}>
+      <body>
         {/* Google Tag Manager */}
         <Script
           id="google-tag-manager"
@@ -180,8 +155,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-NLD8HVTW');`,
           }}
         />
-        {/* End Google Tag Manager */}
-        {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7SHWG8FLE0"
           strategy="afterInteractive"
@@ -198,7 +171,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             `,
           }}
         />
-        {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-NLD8HVTW"
@@ -207,9 +179,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
+        <ClientComponents />
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main style={{ minHeight: '100vh' }}>{children}</main>
         <Footer />
         <Toaster />
         <SpeedInsights />
@@ -217,4 +189,3 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </html>
   );
 }
-
