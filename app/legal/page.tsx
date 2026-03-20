@@ -6,7 +6,10 @@ import gsap from 'gsap';
 import TiltCard from '@/components/TiltCard';
 import HeroCanvas from '@/components/HeroCanvas';
 
-const sections = [
+type SubSection = { heading: string; content?: string; list?: string[]; warning?: string };
+type LegalSection = { id: string; label: string; title: string; subsections: SubSection[] };
+
+const sections: LegalSection[] = [
   {
     id: 'privacy',
     label: '01',
@@ -101,8 +104,8 @@ export default function Legal() {
 
   useEffect(() => {
     const allChars = [
-      ...(line1Ref.current?.querySelectorAll('.hero-char') ?? []),
-      ...(line2Ref.current?.querySelectorAll('.hero-char') ?? []),
+      ...Array.from(line1Ref.current?.querySelectorAll('.hero-char') ?? []),
+      ...Array.from(line2Ref.current?.querySelectorAll('.hero-char') ?? []),
     ];
 
     const onMouse = (e: MouseEvent) => {
@@ -301,7 +304,7 @@ export default function Legal() {
                             {sub.content}
                           </p>
                         )}
-                        {sub.list && (
+                        {'list' in sub && sub.list && (
                           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                             {sub.list.map((item, j) => (
                               <li key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', fontSize: '0.9rem', fontWeight: 300, color: 'rgba(234,229,236,0.6)', lineHeight: 1.7 }}>

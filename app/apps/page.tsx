@@ -31,8 +31,8 @@ export default function Apps() {
 
   useEffect(() => {
     const allChars = [
-      ...(line1Ref.current?.querySelectorAll('.hero-char') ?? []),
-      ...(line2Ref.current?.querySelectorAll('.hero-char') ?? []),
+      ...Array.from(line1Ref.current?.querySelectorAll('.hero-char') ?? []),
+      ...Array.from(line2Ref.current?.querySelectorAll('.hero-char') ?? []),
     ];
 
     const onMouse = (e: MouseEvent) => {
